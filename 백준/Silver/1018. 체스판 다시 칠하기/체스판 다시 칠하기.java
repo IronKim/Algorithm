@@ -1,24 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        int M = scanner.nextInt();
-        scanner.nextLine();  // 개행 문자 처리
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String[] size = br.readLine().split(" ");
+        int N = Integer.parseInt(size[0]);
+        int M = Integer.parseInt(size[1]);
 
         char[][] board = new char[N][M];
 
-        // 보드 입력 받기
         for (int i = 0; i < N; i++) {
-            String row = scanner.nextLine();
+            String row = br.readLine();
             board[i] = row.toCharArray();
         }
 
         int result = countRepaints(board);
-        System.out.println(result);
+        bw.write(result + "\n");
 
-        scanner.close();
+        br.close();
+        bw.close();
     }
 
     private static int countRepaints(char[][] board) {
@@ -31,13 +37,13 @@ public class Main {
 
                 for (int x = 0; x < 8; x++) {
                     for (int y = 0; y < 8; y++) {
-                        if ((x + y) % 2 == 0) {  // 짝수 칸은 흰색
+                        if ((x + y) % 2 == 0) { 
                             if (board[i + x][j + y] == 'B') {
                                 repaintW++;
                             } else {
                                 repaintB++;
                             }
-                        } else {  // 홀수 칸은 검은색
+                        } else {  
                             if (board[i + x][j + y] == 'W') {
                                 repaintW++;
                             } else {

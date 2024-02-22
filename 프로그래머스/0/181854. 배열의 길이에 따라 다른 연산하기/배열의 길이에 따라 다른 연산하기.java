@@ -1,16 +1,11 @@
 class Solution {
     public int[] solution(int[] arr, int n) {
-        int[] answer = new int[arr.length];
+        int[] answer = arr.clone();
         
-        for(int i = 0; i < arr.length; i++) {
-            if(arr.length % 2 == 1) {
-                answer[i] = i % 2 == 0 ? arr[i] + n : arr[i];     
-            }else {
-                answer[i] = i % 2 == 1  ?arr[i] + n : arr[i];
-            }
-            
+        for(int i = arr.length % 2 == 0 ? 1 :0; i < arr.length; i += 2) {
+            answer[i] += n;
         }
-        
+
         return answer;
     }
 }

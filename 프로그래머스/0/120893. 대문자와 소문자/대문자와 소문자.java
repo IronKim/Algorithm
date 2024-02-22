@@ -1,11 +1,11 @@
 class Solution {
     public String solution(String my_string) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         
         for (char c : my_string.toCharArray()) {
-			answer += Character.isUpperCase(c) ? Character.toLowerCase(c) : Character.toUpperCase(c);
+			sb.append(Character.isUpperCase(c) ? Character.toLowerCase(c) : Character.toUpperCase(c));
 		}
         
-        return answer;
+        return sb.toString();
     }
 }

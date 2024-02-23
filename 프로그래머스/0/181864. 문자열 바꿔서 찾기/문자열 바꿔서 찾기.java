@@ -1,11 +1,11 @@
 class Solution {
     public int solution(String myString, String pat) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         
         for (char c : myString.toCharArray()) {
-			answer += c == 'A' ? 'B' : 'A';
+			answer.append(c == 'A' ? 'B' : 'A');
 		}
         
-        return answer.contains(pat) ? 1 : 0;
+        return answer.toString().contains(pat) ? 1 : 0;
     }
 }

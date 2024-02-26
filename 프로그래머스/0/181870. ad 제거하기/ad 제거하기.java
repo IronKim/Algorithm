@@ -1,7 +1,12 @@
 import java.util.*;
 
 class Solution {
-    public Object[] solution(String[] strArr) {
-        return Arrays.stream(strArr).filter(str -> !str.contains("ad")).toArray();
+    public String[] solution(String[] strArr) {
+
+        List<String> answer = new ArrayList<String>(Arrays.asList(strArr));
+		
+		answer.removeIf(str -> str.contains("ad"));
+		
+        return answer.toArray(new String[answer.size()]);
     }
 }

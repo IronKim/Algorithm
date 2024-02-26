@@ -1,7 +1,9 @@
-import java.util.stream.*;
+import java.util.*;
 
 class Solution {
     public int[] solution(String myString) {
-        return Stream.of(myString.split("x", -1)).map(str -> str.length()).mapToInt(Integer::intValue).toArray();
+        return Arrays.stream(myString.split("x", myString.length()))
+            .mapToInt(x -> x.length())
+            .toArray();
     }
 }

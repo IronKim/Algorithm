@@ -2,18 +2,8 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] numbers) {
-        int answer = -2147483648;
-        
-        for(int i = 0; i < numbers.length; i++) {
-        	for(int j = 0; j < numbers.length; j++) {
-        		
-        		if(i == j)
-        			continue;
-        		
-        		answer = numbers[i] * numbers[j] > answer ? numbers[i] * numbers[j] : answer;
-        	}
-        }
-        
-        return answer;
+        int len = numbers.length;
+        Arrays.sort(numbers);
+        return Math.max(numbers[0] * numbers[1], numbers[len - 2] * numbers[len - 1]);
     }
 }

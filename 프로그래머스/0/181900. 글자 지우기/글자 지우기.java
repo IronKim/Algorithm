@@ -3,9 +3,9 @@ class Solution {
         char[] answer = my_string.toCharArray();
         
         for(int i = 0; i < indices.length; i++) {
-        	answer[indices[i]] = '`';
+        	answer[indices[i]] = ' ';
         }
         
-        return String.valueOf(answer).replace("`", "");
+        return String.valueOf(answer).replace(" ", "");
     }
 }

@@ -1,6 +1,6 @@
 class Solution {
     public String[] solution(String my_str, int n) {
-        String[] answer = new String[my_str.length() % n == 0 ? my_str.length() / n : my_str.length() / n + 1];
+        String[] answer = new String[(my_str.length() + n - 1) / n];
         
         for(int i = 0; i < answer.length; i++) {
             if(n * (i + 1) > my_str.length()) 

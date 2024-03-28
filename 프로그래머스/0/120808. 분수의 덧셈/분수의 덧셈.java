@@ -1,24 +1,16 @@
-import java.math.BigInteger;
-
 class Solution {
     public int[] solution(int numer1, int denom1, int numer2, int denom2) {
-        int[] answer = new int[2];
-		BigInteger n = BigInteger.valueOf(numer1 * denom2).add(BigInteger.valueOf(numer2 * denom1));
-		BigInteger d = BigInteger.valueOf(denom1 * denom2);
-        
-        for(BigInteger i = BigInteger.TWO; n.max(d).compareTo(i) >= 0;) {
-        	if(n.mod(i) == BigInteger.ZERO && d.mod(i) == BigInteger.ZERO) {
-        		n = n.divide(i);
-        		d = d.divide(i);
-				continue;
-        	}
-        	
-        	i = i.add(BigInteger.ONE);
+        int mother = denom1 * denom2;
+        int son1 = numer1 * denom2;
+        int son2 = numer2 * denom1;
+        int totalSon = son1 + son2;
+        for(int i = mother; i >= 1; i--){
+            if(totalSon % i == 0 && mother % i == 0){
+                totalSon /= i;
+                mother /= i;
+            }
         }
-        
-        answer[0] = n.intValue();
-        answer[1] = d.intValue();
-        
+        int[] answer = {totalSon, mother};
         return answer;
     }
 }

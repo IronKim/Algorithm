@@ -5,6 +5,7 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         Map<String, Integer> map = new HashMap<String, Integer>();
 		List<String> list = new ArrayList<String>();
@@ -25,10 +26,12 @@ public class Main {
 		
 		Collections.sort(list);
 		
-		System.out.println(list.size());
+		bw.write(list.size() + "\n");
 		
 		for (String string : list) {
-			System.out.println(string);
+			bw.write(string + "\n");
 		}
+        
+        bw.flush();
     }
 }

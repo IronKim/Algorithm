@@ -4,8 +4,7 @@ public class Main {
     static boolean[] visited;
     static List<Integer>[] lists;
     static Queue<Integer> queue = new LinkedList<Integer>();
-    static StringBuilder dfsOrder = new StringBuilder();
-    static StringBuilder bfsOrder = new StringBuilder();
+    static StringBuilder sb = new StringBuilder();
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -33,15 +32,15 @@ public class Main {
         
         dfs(start);
         visited = new boolean[n + 1];
+        sb.append("\n");
         bfs(start);
         
-        System.out.println(dfsOrder.toString().trim());
-        System.out.println(bfsOrder.toString().trim());
+        System.out.println(sb);
 	}
     
      public static void dfs(int n) {
         visited[n] = true;
-        dfsOrder.append(n + " ");
+        sb.append(n + " ");
         
         for (Integer i : lists[n]) {
             if(!visited[i]) {
@@ -56,7 +55,7 @@ public class Main {
         
         while(!queue.isEmpty()) {
             n = queue.poll();
-            bfsOrder.append(n + " ");
+            sb.append(n + " ");
             
             for (Integer i : lists[n]) {
                 if(!visited[i]) {
